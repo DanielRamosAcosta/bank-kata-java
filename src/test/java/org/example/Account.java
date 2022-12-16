@@ -1,18 +1,23 @@
 package org.example;
 
 public class Account {
-    public Account(MyConsole console) {
+    private StatementRepository statementRepository = null;
+    private StatementPrinter statementPrinter = null;
+
+    public Account(MyConsole console, StatementRepository statementRepository, StatementPrinter statementPrinter) {
+        this.statementRepository = statementRepository;
+        this.statementPrinter = statementPrinter;
     }
 
     public void deposit(int i) {
-        throw new RuntimeException("Not implemented yet");
+        statementRepository.deposit(i);
     }
 
     public void withdrawal(int i) {
-        throw new RuntimeException("Not implemented yet");
+        statementRepository.withdrawal(i);
     }
 
     public void printStatement() {
-        throw new RuntimeException("Not implemented yet");
+        statementPrinter.print(statementRepository.getAll());
     }
 }

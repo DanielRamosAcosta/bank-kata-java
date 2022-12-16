@@ -10,8 +10,10 @@ class AccountShould {
         // UserRepository localMockRepository = Mockito.mock(UserRepository.class);
         // Mockito.when(localMockRepository.count()).thenReturn(111L);
         MyConsoleMock console = new MyConsoleMock();
+        StatementRepository statementRepository = new StatementRepository();
+        StatementPrinter statementPrinter = new StatementPrinter(console);
 
-        var account = new Account(console);
+        var account = new Account(console, statementRepository, statementPrinter);
 
         account.deposit(1000);
         account.deposit(2000);
