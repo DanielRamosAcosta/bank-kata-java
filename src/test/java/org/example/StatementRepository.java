@@ -1,18 +1,22 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.List;
+
 
 public class StatementRepository {
 
-    public void deposit(int i) {
-        throw new RuntimeException("Not yet implemented");
+    private ArrayList<Transaction> transactions = new ArrayList<>();
+
+    public void deposit(int amount) {
+        transactions.add(new Transaction(amount));
     }
 
     public void withdrawal(int i) {
-        throw new RuntimeException("Not yet implemented");
+        transactions.add(new Transaction(-i));
     }
 
     public List<Transaction> getAll() {
-        throw new RuntimeException("Not yet implemented");
+        return transactions;
     }
 }
